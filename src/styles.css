@@ -1,0 +1,414 @@
+/* Import Montserrat for modern buttons and headings */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+/* Global Reset and Transition */
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e0e7ef 0%, #f6f8fa 100%);
+  min-height: 100vh;
+  color: #222;
+}
+
+/* --- NAVBAR IMPROVEMENT --- */
+.navbar {
+  display: flex;
+  gap: 16px;
+  background: linear-gradient(90deg, #222b45 60%, #2b3467 100%);
+  padding: 18px 36px;
+  box-shadow: 0 4px 18px #0366d622;
+  border-bottom: 3px solid #2188ff;
+  align-items: center;
+  border-radius: 0 0 18px 18px;
+}
+
+.navbar-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: auto;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 2px 8px #0366d622;
+}
+
+.navbar button {
+  background: linear-gradient(90deg, #2188ff 60%, #0366d6 100%);
+  color: #fff;
+  border: none;
+  font-size: 1.08rem;
+  padding: 10px 26px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  box-shadow: 0 2px 8px #0366d622;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.navbar button:hover,
+.navbar .active {
+  background: linear-gradient(90deg, #0366d6 60%, #2188ff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px #0366d633;
+}
+
+.container {
+  max-width: 950px;
+  margin: 48px auto;
+  background: rgba(255,255,255,0.95);
+  padding: 36px 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #0366d611;
+}
+
+.container:hover {
+  box-shadow: 0 12px 40px #0366d622;
+}
+
+/* .task-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+} *//* ...existing code... */
+.task-board {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2r 2fr; /* Wider To Do, In Progress, Completed */
+  gap: 24px;
+  margin-top: 36px;
+}
+/* ...existing code... */
+
+.column {
+  background: linear-gradient(120deg, #f4f7fa 70%, #eaf1fb 100%);
+  padding: 18px 12px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #0366d111;
+  border: 1.5px solid #e3eaf3;
+  animation: fadeInUp 0.4s ease;
+}
+
+.column:hover {
+  box-shadow: 0 6px 24px #0366d222;
+  transform: translateY(-2px) scale(1.01);
+}
+
+.column h3 {
+  margin-top: 0;
+  font-size: 1.18rem;
+  color: #0366d6;
+  letter-spacing: 0.7px;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 0 #fff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+/* --- TASK CARD --- */
+.task-card {
+  background: linear-gradient(100deg, #fff 80%, #eaf1fb 100%);
+  margin-bottom: 14px;
+  padding: 16px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0366d111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #0366d6;
+}
+
+.task-card:hover {
+  box-shadow: 0 6px 20px #0366d222;
+  transform: translateY(-3px) scale(1.03);
+  border-left: 4px solid #2188ff;
+}
+
+.task-card h4 {
+  font-size: 1rem;
+  margin: 0;
+  color: #222;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.task-card:hover h4 {
+  color: #0366d6;
+}
+
+/* --- TASK CARD BUTTONS --- */
+.task-card button,
+.task-card .btn {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #0001;
+  outline: none;
+  display: inline-block;
+}
+
+/* DELETE BUTTON - vibrant red */
+.task-card .btn-delete,
+.task-card button.delete {
+  background: linear-gradient(90deg, #ff1744 60%, #ff616f 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px #ff174433;
+}
+.task-card .btn-delete:hover,
+.task-card button.delete:hover {
+  background: linear-gradient(90deg, #b71c1c 60%, #ff1744 100%);
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px #ff174433;
+}
+
+/* EDIT BUTTON - blue accent */
+.task-card .btn-edit,
+.task-card button.edit {
+  background: linear-gradient(90deg, #36d1c4 60%, #2188ff 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px #2188ff33;
+}
+.task-card .btn-edit:hover,
+.task-card button.edit:hover {
+  background: linear-gradient(90deg, #2188ff 60%, #36d1c4 100%);
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px #2188ff33;
+}
+
+/* --- ADD TASK BUTTON --- */
+.add-task-btn,
+.btn-add-task,
+button.add-task {
+  background: linear-gradient(90deg, #43e97b 60%, #38f9d7 100%);
+  color: #fff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  margin: 18px 0 10px 0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #43e97b33;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  display: inline-block;
+}
+.add-task-btn:hover,
+.btn-add-task:hover,
+button.add-task:hover {
+  background: linear-gradient(90deg, #11998e 60%, #38f9d7 100%);
+  transform: scale(1.06);
+  box-shadow: 0 4px 16px #43e97b33;
+}
+
+/* --- MODAL --- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  background: #0008;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* --- TASK MODAL STYLING --- */
+.modal {
+  background: #fffefc;
+  padding: 36px 32px;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px #0366d233;
+  min-width: 340px;
+  max-width: 95vw;
+  border: 2px solid #e3eaf3;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.modal h4 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: #2188ff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+.modal input[type="text"],
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0 14px 0;
+  border: 1.5px solid #e3eaf3;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  background: #f7fafd;
+  color: #222;
+  box-shadow: 0 1px 4px #0366d111;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border: 1.5px solid #2188ff;
+  outline: none;
+  box-shadow: 0 2px 8px #2188ff22;
+}
+
+.modal select {
+  appearance: none;
+  background: linear-gradient(90deg, #eaf1fb 80%, #f7fafd 100%);
+  cursor: pointer;
+}
+
+.modal option {
+  color: #0366d6;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+/* Style the button row */
+.modal form > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* --- PROFILE PAGE BUTTONS --- */
+.profile-edit-btn {
+  background: linear-gradient(90deg, #36d1c4 60%, #2188ff 100%);
+  color: #fff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #2188ff33;
+  transition: background 0.2s, transform 0.1s;
+}
+.profile-edit-btn:hover {
+  background: linear-gradient(90deg, #2188ff 60%, #36d1c4 100%);
+  transform: scale(1.06);
+  box-shadow: 0 4px 16px #2188ff33;
+}
+
+/* --- EDIT PROFILE TABLE --- */
+.edit-profile-table,
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  height: 40px;
+  font-size: large;
+  padding-top: 7px;
+  padding-left: 7px;
+  margin-top:  20px;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+  background: #fff;
+}
+.edit-profile-table th, .edit-profile-table td,
+.user-table th, .user-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 1rem;
+}
+.edit-profile-table th,
+.user-table th {
+  background: #2188ff;
+  color: white;
+  font-weight: 700;
+}
+.edit-profile-table tr:nth-child(even),
+.user-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* --- SAVE & CANCEL BUTTONS --- */
+.save-btn {
+  background: linear-gradient(90deg, #43e97b 60%, #38f9d7 100%);
+  color: #fff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 10px;
+  box-shadow: 0 2px 8px #43e97b33;
+  transition: background 0.2s, transform 0.1s;
+}
+.save-btn:hover {
+  background: linear-gradient(90deg, #11998e 60%, #38f9d7 100%);
+  transform: scale(1.06);
+}
+
+.cancel-btn {
+  background: linear-gradient(90deg, #ff616f 60%, #ff1744 100%);
+  color: #fff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ff174433;
+  transition: background 0.2s, transform 0.1s;
+}
+.cancel-btn:hover {
+  background: linear-gradient(90deg, #b71c1c 60%, #ff1744 100%);
+  transform: scale(1.06);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes modalIn {
+  from { transform: scale(0.95) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+button:focus, input:focus {
+  outline: 2px solid #0366d6;
+  outline-offset: 2px;
+}
+
+/* Responsive improvements */
+@media (max-width: 900px) {
+  .container { padding: 16px 6px; }
+  .task-board { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .column { min-width: 160px; padding: 12px 6px; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 4px 2px; }
+  .task-board { grid-template-columns: 1fr; gap: 10px; }
+  .column { min-width: 0; padding: 10px 4px; }
+  .modal { padding: 18px 6px; }
+}
