@@ -1,16 +1,16 @@
-const API = "http://localhost:4000/api";
+const API = process.env.REACT_APP_API_URL;
 
-// Tasks
-export async function getTasks() {
-  const res = await fetch(`${API}/tasks`);
-  return res.json();
-}
 export async function addTask(task) {
   const res = await fetch(`${API}/tasks`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task),
   });
+  return res.json();
+}
+// Tasks
+export async function getTasks() {
+  const res = await fetch(`${API}/tasks`);
   return res.json();
 }
 export async function updateTask(task) {
@@ -21,6 +21,7 @@ export async function updateTask(task) {
   });
   return res.json();
 }
+
 export async function deleteTask(id) {
   await fetch(`${API}/tasks/${id}`, { method: "DELETE" });
 }
@@ -30,6 +31,7 @@ export async function getUser() {
   const res = await fetch(`${API}/user`);
   return res.json();
 }
+
 export async function updateUser(user) {
   const res = await fetch(`${API}/user`, {
     method: "PUT",

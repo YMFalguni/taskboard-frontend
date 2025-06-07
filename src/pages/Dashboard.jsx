@@ -11,11 +11,11 @@ export default function Dashboard({ tasks }) {
     <div className="dashboard">
       <h1>Task Dashboard</h1>
       <p>Welcome to your task dashboard! Here you can see an overview of your tasks.</p>
-    <div class="task-board">
-      <div class="column">Total: {total}</div>
-      <div class="column">To Do: {todo}</div>
-      <div class="column">In Progress: {doing}</div>
-      <div class="column">Completed: {done}</div>
+    <div className="task-board">
+      <div className="column">Total: {total}</div>
+      <div className="column">To Do: {todo}</div>
+      <div className="column">In Progress: {doing}</div>
+      <div className="column">Completed: {done}</div>
     </div>
     </div>
   </>

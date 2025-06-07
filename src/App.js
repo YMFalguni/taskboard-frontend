@@ -17,18 +17,24 @@ export default function App() {
   }, []);
 
   // API wrappers for TaskBoard & UserProfile
-  const handleAddTask = async (task) => {
-    const newTask = await api.addTask(task);
-    setTasks((tasks) => [...tasks, newTask]);
-  };
-  const handleUpdateTask = async (task) => {
-    const updated = await api.updateTask(task);
-    setTasks((tasks) => tasks.map(t => t.id === task.id ? updated : t));
-  };
-  const handleDeleteTask = async (id) => {
-    await api.deleteTask(id);
-    setTasks((tasks) => tasks.filter(t => t.id !== id));
-  };
+ const handleAddTask = async (task) => {
+  const newTask = await api.addTask(task);
+  // Normalize _id → id
+  setTasks((tasks) => [...tasks, { ...newTask, id: newTask._id }]);
+};
+
+const handleUpdateTask = async (task) => {
+  const updated = await api.updateTask(task);
+  setTasks((tasks) =>
+    tasks.map((t) => t.id === task.id ? { ...updated, id: updated._id } : t)
+  );
+};
+
+const handleDeleteTask = async (id) => {
+  await api.deleteTask(id);
+  setTasks((tasks) => tasks.filter((t) => t.id !== id));
+};
+
   const handleUpdateUser = async (userObj) => {
     const updated = await api.updateUser(userObj);
     setUser(updated);
