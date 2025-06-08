@@ -11,7 +11,7 @@ This is a fully deployed and responsive task management web application built wi
 
 | Frontend  | [https://taskboard-frontend-pearl.vercel.app](https://taskboard-frontend-pearl.vercel.app) |
 | Backend API | [https://taskboard-backend-3vs4.onrender.com/api/tasks](https://taskboard-backend-3vs4.onrender.com/api/tasks) |
-| Loom Video | [https://www.loom.com/share/6dd6b5beb66d476b8f3352123f515484](https://www.loom.com/share/6dd6b5beb66d476b8f3352123f515484) |
+| Loom Video | https://www.loom.com/share/b9ae3ec0c26e47b59199221fa74b7a0a?sid=5267814c-2f52-40ad-8d29-5fcc384e86d8 |
 
 ---
 
